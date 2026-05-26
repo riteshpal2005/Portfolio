@@ -1,3 +1,5 @@
 node_modules/
 .env
 *.log
+skills.md
+portfolio_blueprint.md
