@@ -93,15 +93,14 @@
 
 ## Screenshots
 
-> Add your screenshots here after deployment.
-
 | Hero Section | Projects Section |
 |---|---|
-| ![Hero](https://via.placeholder.com/600x340/080810/4F8EF7?text=Hero+Section) | ![Projects](https://via.placeholder.com/600x340/080810/A855F7?text=Projects+Section) |
+| ![Hero](screenshots/hero.png) | ![Projects](screenshots/projects.png) |
 
 | Skills Section | Contact Section |
 |---|---|
-| ![Skills](https://via.placeholder.com/600x340/080810/22D3EE?text=Skills+Section) | ![Contact](https://via.placeholder.com/600x340/080810/EC4899?text=Contact+Section) |
+| ![Skills](screenshots/skills.png) | ![Contact](screenshots/contacts.png) |
+
 
 ---
 
