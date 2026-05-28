@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import MobileFrame from '../components/MobileFrame';
 
 const heroScreens = [
-  { id: 1, bg: '#05050f', icon: '🚀', title: 'React Native', subtitle: 'Building for iOS & Android', accent: '#4F8EF7' },
-  { id: 2, bg: '#0a0520', icon: '⚡', title: 'Expo SDK', subtitle: 'Shipping fast & clean', accent: '#A855F7' },
-  { id: 3, bg: '#00141a', icon: '✨', title: 'Motion First', subtitle: '60fps animations always', accent: '#22D3EE' },
+  { id: 1, bg: '#05050f', icon: 'RN', title: 'React Native', subtitle: 'Building for iOS & Android', accent: '#4F8EF7' },
+  { id: 2, bg: '#0a0520', icon: 'EX', title: 'Expo SDK', subtitle: 'Shipping fast & clean', accent: '#A855F7' },
+  { id: 3, bg: '#00141a', icon: '60', title: 'Motion First', subtitle: '60fps animations always', accent: '#22D3EE' },
 ];
 
 const words = ['Mobile', 'Native', 'Beautiful', 'Alive'];
@@ -83,7 +83,7 @@ export default function Hero() {
         }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center pt-24 lg:pt-0 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-24 pb-16 lg:pt-0 lg:pb-0 relative z-10">
         {/* Left — Text */}
         <div className="flex flex-col gap-6 order-2 lg:order-1">
           {/* Badge */}
@@ -244,7 +244,7 @@ export default function Hero() {
               className="absolute -left-16 top-16 glass px-3 py-2 rounded-xl hidden lg:flex items-center gap-2"
               style={{ border: '1px solid rgba(79,142,247,0.3)' }}
             >
-              <span className="text-lg">⚡</span>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(79,142,247,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 9, fontWeight: 800, color: '#4F8EF7' }}>60</div>
               <div>
                 <div className="text-xs font-bold text-white">60 FPS</div>
                 <div className="text-xs text-slate-400">Smooth UI</div>
@@ -257,7 +257,7 @@ export default function Hero() {
               className="absolute -right-16 top-24 glass px-3 py-2 rounded-xl hidden lg:flex items-center gap-2"
               style={{ border: '1px solid rgba(168,85,247,0.3)' }}
             >
-              <span className="text-lg">📱</span>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(168,85,247,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 8, fontWeight: 800, color: '#A855F7' }}>RN</div>
               <div>
                 <div className="text-xs font-bold text-white">Cross-platform</div>
                 <div className="text-xs text-slate-400">iOS & Android</div>
@@ -270,7 +270,7 @@ export default function Hero() {
               className="absolute -right-12 bottom-24 glass px-3 py-2 rounded-xl hidden lg:flex items-center gap-2"
               style={{ border: '1px solid rgba(34,211,238,0.3)' }}
             >
-              <span className="text-lg">🔥</span>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(34,211,238,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 8, fontWeight: 800, color: '#22D3EE' }}>TS</div>
               <div>
                 <div className="text-xs font-bold text-white">TypeScript</div>
                 <div className="text-xs text-slate-400">Type-safe</div>

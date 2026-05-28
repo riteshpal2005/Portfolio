@@ -37,7 +37,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus('loading');
     try {
-      const res = await fetch('http://localhost:3001/api/contact', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -71,7 +71,7 @@ export default function Contact() {
   });
 
   return (
-    <section id="contact" className="py-32 relative">
+    <section id="contact" className="py-20 lg:py-32 relative">
       <div style={{
         position: 'absolute', left: '50%', top: '20%', transform: 'translateX(-50%)',
         width: 700, height: 400,
@@ -79,7 +79,7 @@ export default function Contact() {
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
 
-      <div className="max-w-5xl mx-auto px-6" ref={ref}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -90,7 +90,7 @@ export default function Contact() {
           <div className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#EC4899' }}>
             — Let's Connect
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Let's Build Something <span className="gradient-text">Together</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
@@ -99,7 +99,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Left — form (3 cols) */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -250,9 +250,21 @@ export default function Contact() {
                 <span className="w-2.5 h-2.5 rounded-full bg-green-400" style={{ boxShadow: '0 0 8px #4ade80' }} />
                 <h3 className="font-display font-bold text-white">Open to Opportunities</h3>
               </div>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {[
+                  { label: 'Freelancing', color: '#F59E0B' },
+                  { label: 'Internship', color: '#4F8EF7' },
+                  { label: 'Full-time Job', color: '#A855F7' },
+                ].map(tag => (
+                  <span key={tag.label}
+                    className="text-xs px-2.5 py-1 rounded-full font-semibold"
+                    style={{ background: `${tag.color}15`, border: `1px solid ${tag.color}35`, color: tag.color }}>
+                    {tag.label}
+                  </span>
+                ))}
+              </div>
               <p className="text-slate-400 text-sm">
-                Looking for <span className="text-white">internships</span>, entry-level mobile developer roles,
-                and open-source collaborations. Final year student ready to contribute.
+                Final year student ready to contribute and grow.
               </p>
             </div>
 

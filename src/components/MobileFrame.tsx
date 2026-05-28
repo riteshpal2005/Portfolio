@@ -102,13 +102,23 @@ export default function MobileFrame({ screens, tiltX = 0, tiltY = 0, scale = 1 }
                 {/* Header */}
                 <div>
                   <div style={{
-                    fontSize: 28,
                     marginBottom: 8,
                     display: 'flex',
                     alignItems: 'center',
                     gap: 8,
                   }}>
-                    <span>{screen.icon}</span>
+                    <div style={{
+                      width: 30, height: 30,
+                      borderRadius: 8,
+                      background: `${screen.accent}22`,
+                      border: `1px solid ${screen.accent}44`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 13, fontWeight: 800, color: screen.accent,
+                      fontFamily: 'Space Grotesk, sans-serif',
+                      flexShrink: 0,
+                    }}>
+                      {screen.icon}
+                    </div>
                     <span style={{ fontSize: 15, fontWeight: 700, color: 'white', fontFamily: 'Inter, sans-serif' }}>
                       {screen.title}
                     </span>
@@ -148,9 +158,10 @@ export default function MobileFrame({ screens, tiltX = 0, tiltY = 0, scale = 1 }
                   paddingTop: 10,
                   marginTop: 16,
                 }}>
-                  {['🏠', '📊', '🔍', '👤'].map((icon, i) => (
+                  {['Home', 'Stats', 'Search', 'Profile'].map((icon, i) => (
                     <div key={i} style={{
-                      fontSize: i === 0 ? 18 : 14,
+                      fontSize: 8,
+                      fontWeight: i === 0 ? 700 : 500,
                       opacity: i === 0 ? 1 : 0.4,
                       display: 'flex',
                       flexDirection: 'column',

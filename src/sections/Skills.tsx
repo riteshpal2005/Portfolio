@@ -7,7 +7,7 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" className="py-32 relative overflow-hidden">
+    <section id="skills" className="py-20 lg:py-32 relative overflow-hidden">
       {/* Ambient glow */}
       <div style={{
         position: 'absolute', right: -200, top: '30%',
@@ -16,7 +16,7 @@ export default function Skills() {
         borderRadius: '50%', filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,21 +27,21 @@ export default function Skills() {
           <div className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#A855F7' }}>
             — Tech Stack
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
-            The Tools I <span className="gradient-text">Master</span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Tools I'm <span className="gradient-text">Working With</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
-            Strictly the technologies that matter for building world-class mobile experiences.
+            Technologies I've been building with over the past 5–6 months.
           </p>
         </motion.div>
 
-        {/* Orbit visualizer */}
-        <div className="flex justify-center mb-20">
+        {/* Orbit visualizer — hidden on mobile to prevent overflow */}
+        <div className="hidden md:flex justify-center mb-16 lg:mb-20">
           <SkillOrbit inView={inView} />
         </div>
 
         {/* Skill category grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.name}
@@ -53,9 +53,9 @@ export default function Skills() {
               style={{ border: `1px solid ${cat.color}20` }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center"
                   style={{ background: `${cat.color}15`, border: `1px solid ${cat.color}30` }}>
-                  {cat.icon}
+                  <span style={{ fontSize: 9, fontWeight: 800, color: cat.color, letterSpacing: '0.05em' }}>{cat.icon}</span>
                 </div>
                 <h3 className="font-display font-bold text-white text-sm">{cat.name}</h3>
               </div>
@@ -86,9 +86,9 @@ export default function Skills() {
 }
 
 function SkillOrbit({ inView }: { inView: boolean }) {
-  const coreSkills = ['RN', 'Expo', 'TS', 'Vite'];
-  const orbitSkills1 = ['Firebase', 'Supabase', 'Zustand', 'Clerk', 'Zod', 'Axios'];
-  const orbitSkills2 = ['Reanimated', 'Framer', 'Lottie', 'Skia', 'GSRH'];
+  const coreSkills = ['RN', 'Expo', 'TS'];
+  const orbitSkills1 = ['Supabase', 'Firebase', 'Zustand', 'Zod', 'Axios'];
+  const orbitSkills2 = ['Reanimated', 'Framer', 'Gesture Handler'];
 
   return (
     <motion.div
@@ -199,7 +199,6 @@ function SkillOrbit({ inView }: { inView: boolean }) {
         left: '50%',
         top: '50%',
       }}>
-        <div style={{ fontSize: 22 }}>📱</div>
         <div style={{
           fontFamily: 'Space Grotesk, sans-serif',
           fontWeight: 800,
