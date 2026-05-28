@@ -38,6 +38,11 @@ body {
   cursor: none !important;
 }
 
+/* Restore pointer for links so click still registers visually */
+a, button {
+  cursor: none !important;
+}
+
 /* ─── Scrollbar ───────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }

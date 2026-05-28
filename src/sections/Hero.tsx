@@ -168,8 +168,22 @@ export default function Hero() {
             transition={{ delay: 1.15, duration: 0.7 }}
             className="flex flex-wrap gap-2"
           >
-            {['React Native', 'Expo', 'TypeScript', 'Framer Motion'].map(tech => (
-              <span key={tech} className="skill-chip">{tech}</span>
+            {[
+              { label: 'React Native', url: 'https://reactnative.dev' },
+              { label: 'Expo', url: 'https://expo.dev' },
+              { label: 'TypeScript', url: 'https://typescriptlang.org' },
+              { label: 'Framer Motion', url: 'https://www.framer.com/motion' },
+            ].map(tech => (
+              <a
+                key={tech.label}
+                href={tech.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="skill-chip"
+                style={{ textDecoration: 'none' }}
+              >
+                {tech.label}
+              </a>
             ))}
           </motion.div>
 
@@ -242,7 +256,7 @@ export default function Hero() {
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute -left-16 top-16 glass px-3 py-2 rounded-xl hidden lg:flex items-center gap-2"
-              style={{ border: '1px solid rgba(79,142,247,0.3)' }}
+              style={{ border: '1px solid rgba(79,142,247,0.3)', zIndex: 10 }}
             >
               <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(79,142,247,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 9, fontWeight: 800, color: '#4F8EF7' }}>60</div>
               <div>
@@ -255,7 +269,7 @@ export default function Hero() {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
               className="absolute -right-16 top-24 glass px-3 py-2 rounded-xl hidden lg:flex items-center gap-2"
-              style={{ border: '1px solid rgba(168,85,247,0.3)' }}
+              style={{ border: '1px solid rgba(168,85,247,0.3)', zIndex: 10 }}
             >
               <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(168,85,247,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 8, fontWeight: 800, color: '#A855F7' }}>RN</div>
               <div>
@@ -268,7 +282,7 @@ export default function Hero() {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
               className="absolute -right-12 bottom-24 glass px-3 py-2 rounded-xl hidden lg:flex items-center gap-2"
-              style={{ border: '1px solid rgba(34,211,238,0.3)' }}
+              style={{ border: '1px solid rgba(34,211,238,0.3)', zIndex: 10 }}
             >
               <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(34,211,238,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 8, fontWeight: 800, color: '#22D3EE' }}>TS</div>
               <div>

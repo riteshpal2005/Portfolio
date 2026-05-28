@@ -61,20 +61,26 @@ export default function Skills() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, j) => (
-                  <motion.span
-                    key={skill}
+                  <motion.a
+                    key={skill.name}
+                    href={skill.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: i * 0.08 + j * 0.04, duration: 0.4 }}
-                    className="text-xs px-2.5 py-1 rounded-full font-medium transition-all duration-300 group-hover:border-opacity-50"
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    className="text-xs px-2.5 py-1 rounded-full font-medium transition-all duration-300"
                     style={{
                       background: `${cat.color}10`,
                       border: `1px solid ${cat.color}25`,
                       color: cat.color,
+                      textDecoration: 'none',
+                      display: 'inline-block',
                     }}
                   >
-                    {skill}
-                  </motion.span>
+                    {skill.name}
+                  </motion.a>
                 ))}
               </div>
             </motion.div>

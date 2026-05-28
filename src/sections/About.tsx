@@ -24,6 +24,16 @@ const journey = [
   },
 ];
 
+const learningChips = [
+  { label: 'React Native', url: 'https://reactnative.dev' },
+  { label: 'Expo Router', url: 'https://expo.dev/router' },
+  { label: 'Reanimated', url: 'https://docs.swmansion.com/react-native-reanimated' },
+  { label: 'Supabase', url: 'https://supabase.com' },
+  { label: 'TypeScript', url: 'https://typescriptlang.org' },
+  { label: 'Zustand', url: 'https://zustand-demo.pmnd.rs' },
+  { label: 'Clean Architecture', url: 'https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html' },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
@@ -183,11 +193,17 @@ export default function About() {
             >
               <h3 className="font-display font-bold text-white mb-3">Currently Learning</h3>
               <div className="flex flex-wrap gap-2">
-                {[
-                  'React Native', 'Expo Router', 'Reanimated', 'Supabase',
-                  'TypeScript', 'Zustand', 'Clean Architecture',
-                ].map(area => (
-                  <span key={area} className="skill-chip">{area}</span>
+                {learningChips.map(chip => (
+                  <a
+                    key={chip.label}
+                    href={chip.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="skill-chip"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    {chip.label}
+                  </a>
                 ))}
               </div>
             </motion.div>

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
 import MobileFrame from '../components/MobileFrame';
+import { techUrls } from '../data/techUrls';
 
 const statusColors: Record<string, { bg: string; text: string; dot: string }> = {
   'Live': { bg: 'rgba(34,197,94,0.15)', text: '#4ade80', dot: '#4ade80' },
@@ -9,8 +10,7 @@ const statusColors: Record<string, { bg: string; text: string; dot: string }> = 
   'Planned': { bg: 'rgba(168,85,247,0.15)', text: '#c4b5fd', dot: '#A855F7' },
 };
 
-// The MobileFrame is 260×530px native. At scale(0.52) it renders as 135×275px.
-// We give the container exactly that height so no overflow into the text below.
+// MobileFrame is 260×530px native. At scale(0.52) it renders as 135×275px.
 const PHONE_NATIVE_WIDTH = 260;
 const PHONE_NATIVE_HEIGHT = 530;
 const CARD_SCALE = 0.52;
@@ -52,7 +52,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Project cards — responsive grid */}
+        {/* Project cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10">
           {projects.map((project, i) => {
             const status = statusColors[project.status];
@@ -70,21 +70,15 @@ export default function Projects() {
                 {/* Gradient top bar */}
                 <div className={`h-1.5 w-full bg-gradient-to-r ${project.gradient} flex-shrink-0`} />
 
-                {/* ── Phone preview ─────────────────────────────────────────
-                    The MobileFrame is 260×530 native. We scale it to 0.52 →
-                    rendered size is ~135×275px. We set the container height
-                    explicitly so the card flow knows how much space to reserve,
-                    preventing the phone from overlapping the text below.
-                ─────────────────────────────────────────────────────────── */}
+                {/* Phone preview — gives the card a correctly-sized reserved slot
+                    so the scaled phone never overflows into the text below */}
                 <div
                   className="flex justify-center items-start flex-shrink-0 pt-7 pb-5"
                   style={{
                     background: `radial-gradient(circle, ${project.color}08 0%, transparent 70%)`,
-                    // Reserve exactly the scaled height so layout flow is correct
-                    minHeight: CARD_PHONE_H + 48, // +48 for top/bottom padding
+                    minHeight: CARD_PHONE_H + 48,
                   }}
                 >
-                  {/* Scale origin = top-center so the card container height matches */}
                   <div
                     style={{
                       width: CARD_PHONE_W,
@@ -105,7 +99,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Card text — below phone, always visible */}
+                {/* Card text — below phone, always fully visible */}
                 <div className="p-4 sm:p-5 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-2">
                     <div className="min-w-0 flex-1 mr-2">
@@ -134,7 +128,6 @@ export default function Projects() {
 
                   <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>
 
-                  {/* Metrics */}
                   <div className="grid grid-cols-3 gap-2 mt-auto">
                     {project.metrics.map(m => (
                       <div key={m.label} className="text-center p-2 rounded-lg"
@@ -146,7 +139,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Hover overlay */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{ background: `linear-gradient(135deg, ${project.color}06 0%, transparent 100%)` }} />
               </motion.div>
@@ -184,10 +176,9 @@ export default function Projects() {
                   <MobileFrame screens={selectedProject.screens} scale={1.1} />
                 </div>
 
-                {/* Info — responsive: stacked on mobile/tablet, 2-col on lg */}
+                {/* Info below phone */}
                 <div className="p-6 sm:p-8 lg:p-10">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                    {/* Left — title + description + features */}
                     <div>
                       <div className="flex items-center gap-3 flex-wrap mb-4">
                         <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">{selectedProject.name}</h3>
@@ -199,7 +190,6 @@ export default function Projects() {
 
                       <p className="text-slate-300 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">{selectedProject.description}</p>
 
-                      {/* Features */}
                       <div className="mb-6 sm:mb-8">
                         <h4 className="font-display font-bold text-white mb-3 text-sm sm:text-base">Key Features</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -213,7 +203,6 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    {/* Right — engineering focus + stack + github */}
                     <div>
                       <div className="glass rounded-xl p-4 mb-5"
                         style={{ border: `1px solid ${selectedProject.color}20` }}>
@@ -224,16 +213,39 @@ export default function Projects() {
                       <div className="mb-5">
                         <h4 className="font-display font-bold text-white mb-3 text-sm sm:text-base">Tech Stack</h4>
                         <div className="flex flex-wrap gap-2">
-                          {selectedProject.techStack.map(t => (
-                            <span key={t} className="text-xs px-3 py-1 rounded-full font-medium"
-                              style={{
-                                background: `${selectedProject.color}10`,
-                                border: `1px solid ${selectedProject.color}25`,
-                                color: selectedProject.color,
-                              }}>
-                              {t}
-                            </span>
-                          ))}
+                          {selectedProject.techStack.map(t => {
+                            const url = techUrls[t];
+                            return url ? (
+                              <a
+                                key={t}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs px-3 py-1 rounded-full font-medium transition-all duration-200 hover:scale-105"
+                                style={{
+                                  background: `${selectedProject.color}10`,
+                                  border: `1px solid ${selectedProject.color}25`,
+                                  color: selectedProject.color,
+                                  textDecoration: 'none',
+                                  display: 'inline-block',
+                                }}
+                              >
+                                {t}
+                              </a>
+                            ) : (
+                              <span
+                                key={t}
+                                className="text-xs px-3 py-1 rounded-full font-medium"
+                                style={{
+                                  background: `${selectedProject.color}10`,
+                                  border: `1px solid ${selectedProject.color}25`,
+                                  color: selectedProject.color,
+                                }}
+                              >
+                                {t}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
 

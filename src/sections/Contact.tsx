@@ -94,8 +94,8 @@ export default function Contact() {
             Let's Build Something <span className="gradient-text">Together</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
-            I'm actively looking for internships, entry-level roles, and collaborative projects.
-            Got an idea or opportunity? Let's talk!
+            I'm actively looking for internships, freelance work, and full-time roles.
+            Got an idea or opportunity? Let's talk.
           </p>
         </motion.div>
 
@@ -116,9 +116,9 @@ export default function Contact() {
                 >
                   <div className="w-16 h-16 rounded-full flex items-center justify-center text-3xl"
                     style={{ background: 'rgba(34,211,238,0.15)', border: '2px solid rgba(34,211,238,0.4)' }}>
-                    ✅
+                    ✓
                   </div>
-                  <h3 className="font-display font-bold text-white text-xl">Message Sent!</h3>
+                  <h3 className="font-display font-bold text-white text-xl">Message Sent</h3>
                   <p className="text-slate-400 text-center">Thanks! I'll get back to you at <span className="text-white">riteshks211@gmail.com</span> soon.</p>
                 </motion.div>
               ) : status === 'error' ? (
@@ -127,7 +127,10 @@ export default function Contact() {
                   animate={{ scale: 1, opacity: 1 }}
                   className="flex flex-col items-center justify-center py-12 gap-4"
                 >
-                  <div className="text-3xl">⚠️</div>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{ background: 'rgba(239,68,68,0.15)', border: '2px solid rgba(239,68,68,0.4)', fontSize: 24 }}>
+                    !
+                  </div>
                   <p className="text-slate-400 text-center">Something went wrong. Email me directly at <a href="mailto:riteshks211@gmail.com" className="text-blue-400 underline">riteshks211@gmail.com</a></p>
                 </motion.div>
               ) : (
@@ -166,7 +169,7 @@ export default function Contact() {
                     <label className="text-xs font-medium text-slate-400">Subject</label>
                     <input
                       style={inputStyle('subject')}
-                      placeholder="Internship Opportunity / Collaboration / Just Saying Hi..."
+                      placeholder="Internship / Freelance / Collaboration..."
                       value={form.subject}
                       onChange={e => setForm({ ...form, subject: e.target.value })}
                       onFocus={() => setFocused('subject')}
