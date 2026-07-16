@@ -49,3 +49,5 @@ Thumbs.db
 # ──────────────────────────────────────────────────────────────────
 .vite/
 vite.config.ts.timestamp-*
+!README.md
+*.md
