@@ -1,0 +1,33 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  /* Color-aware styling via CSS custom properties */
+  background: var(--tag-bg, var(--color-surface));
+  border: 1px solid var(--tag-border, var(--color-border));
+  color: var(--tag-color, var(--color-text-secondary));
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+a.tag:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.15);
+}
+
+/* ── Sizes ── */
+.sm {
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+}
+
+.md {
+  padding: 6px 14px;
+  font-size: var(--text-sm);
+}
