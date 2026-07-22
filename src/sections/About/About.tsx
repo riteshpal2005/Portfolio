@@ -29,7 +29,7 @@ export default function About() {
           eyebrow="My Story"
           heading="The Developer Behind the Code"
           accentWord="Behind the Code"
-          subtext="3–4 months in. Building mobile apps with React Native and Expo, growing fast, and open to my first opportunity."
+          subtext="3–4 months in React Native. Not new to coding — building production-grade mobile apps and open to my first professional opportunity."
         />
 
         <div className={styles.grid}>

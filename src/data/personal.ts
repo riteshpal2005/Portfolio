@@ -5,7 +5,7 @@ export const personal = {
   name: 'Ritesh Pal',
   role: 'React Native Developer',
   tagline: 'Building Mobile Experiences That Feel Alive.',
-  bio: 'Final year student & aspiring mobile developer specializing in React Native and Expo. Building real-world apps with modern tooling, clean architecture, and performance-first thinking.',
+  bio: 'Not new to coding — started on a phone with Lua back in 2019. Final year student specializing in React Native & Expo, now building production-grade mobile apps with offline-first architecture and performance-first thinking.',
 
   email: 'riteshks211@gmail.com',
   github: 'https://github.com/riteshpal2005',
@@ -25,23 +25,28 @@ export const personal = {
   journey: [
     {
       year: 'Nov 2025',
-      title: 'Started Coding',
-      desc: 'Picked up programming seriously for the first time. Learned the fundamentals and got comfortable with JavaScript and TypeScript.',
+      title: 'Picked Up React Native',
+      desc: 'Not my first time coding — had years of Lua, web dev, Android Kotlin, and C# behind me. Decided to go all-in on React Native and Expo for cross-platform mobile.',
     },
     {
-      year: 'Dec 2025',
-      title: 'Discovered React Native',
-      desc: 'Found React Native and Expo. The idea of shipping to both iOS and Android from a single codebase was the hook that made everything click.',
+      year: 'Dec 2025 – Jan 2026',
+      title: 'Built an Uno Card App',
+      desc: 'First real RN project — a full Uno card game. Tackled complex multiplayer state, turn logic, and deck management. Got genuinely hard. Stepped back to regroup.',
     },
     {
-      year: 'Early 2026',
-      title: 'Building Real Projects',
-      desc: 'Started building LedgerLite and MedTrack — real apps with real architecture. Exploring Reanimated, Zustand, and NativeWind.',
+      year: 'Feb – Apr 2026',
+      title: 'Kotlin, Flutter & Back Again',
+      desc: "Revisited Android Kotlin (already tried in 2024), then spent a few weeks with Flutter. Dart felt like a dead-end — a separate ecosystem just for mobile. TypeScript's reach across RN, web, and backend pulled me back.",
     },
     {
-      year: 'Now · 3–4 months in',
-      title: 'Growing Fast',
-      desc: 'Actively sharpening my skills every day. Open to opportunities where I can contribute, learn on the job, and grow with a team.',
+      year: 'May 2026',
+      title: 'Started LedgerLite',
+      desc: 'Returned to React Native with clarity. Built LedgerLite — an offline-first personal finance app with a custom Smart Merge sync engine and full data portability.',
+    },
+    {
+      year: 'Now · 3–4 mo RN',
+      title: 'Building & Growing',
+      desc: 'Deep in LedgerLite architecture while spinning up MedTrack and SyncMediaPlayer. Sharpening skills every day and open to my first professional opportunity.',
     },
   ],
 
