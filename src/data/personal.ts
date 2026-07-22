@@ -18,28 +18,28 @@ export const personal = {
 
   stats: [
     { value: '3+', label: 'Projects Built' },
-    { value: '5–6 mo', label: 'Experience' },
+    { value: '3–4 mo', label: 'Experience' },
     { value: '100%', label: 'Passion' },
   ],
 
   journey: [
     {
-      year: 'Early 2025',
+      year: 'Nov 2025',
       title: 'Started Coding',
       desc: 'Picked up programming seriously for the first time. Learned the fundamentals and got comfortable with JavaScript and TypeScript.',
     },
     {
-      year: 'Mid 2025',
+      year: 'Dec 2025',
       title: 'Discovered React Native',
       desc: 'Found React Native and Expo. The idea of shipping to both iOS and Android from a single codebase was the hook that made everything click.',
     },
     {
-      year: 'Late 2025',
+      year: 'Early 2026',
       title: 'Building Real Projects',
-      desc: 'Started building Expense Tracker and FitForge — real apps with real architecture. Exploring Reanimated, Zustand, and Supabase.',
+      desc: 'Started building LedgerLite and MedTrack — real apps with real architecture. Exploring Reanimated, Zustand, and NativeWind.',
     },
     {
-      year: 'Now · 5–6 months in',
+      year: 'Now · 3–4 months in',
       title: 'Growing Fast',
       desc: 'Actively sharpening my skills every day. Open to opportunities where I can contribute, learn on the job, and grow with a team.',
     },

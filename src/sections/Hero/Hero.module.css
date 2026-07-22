@@ -90,7 +90,8 @@
   display: inline-block;
   min-width: 120px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  vertical-align: bottom;
 }
 
 .rotatingWord {

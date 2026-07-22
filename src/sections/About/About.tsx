@@ -10,10 +10,9 @@ const LEARNING_CHIPS = [
   { label: 'React Native', url: 'https://reactnative.dev' },
   { label: 'Expo Router', url: 'https://expo.dev/router' },
   { label: 'Reanimated', url: 'https://docs.swmansion.com/react-native-reanimated' },
-  { label: 'Supabase', url: 'https://supabase.com' },
   { label: 'TypeScript', url: 'https://typescriptlang.org' },
   { label: 'Zustand', url: 'https://zustand-demo.pmnd.rs' },
-  { label: 'Clean Architecture', url: 'https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html' },
+  { label: 'NativeWind', url: 'https://www.nativewind.dev' },
 ];
 
 const AVAILABILITY_COLORS: Record<string, string> = {
@@ -30,7 +29,7 @@ export default function About() {
           eyebrow="My Story"
           heading="The Developer Behind the Code"
           accentWord="Behind the Code"
-          subtext="5–6 months in. Building mobile apps with React Native and Expo, growing fast, and open to my first opportunity."
+          subtext="3–4 months in. Building mobile apps with React Native and Expo, growing fast, and open to my first opportunity."
         />
 
         <div className={styles.grid}>
