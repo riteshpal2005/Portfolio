@@ -31,7 +31,13 @@
   background: var(--color-surface);
   border: 1px solid color-mix(in srgb, var(--project-color, #a855f7) 20%, transparent);
   border-radius: var(--radius-xl);
-  padding: var(--space-8);
+  padding: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .detail {
+    padding: var(--space-8);
+  }
 }
 
 /* ── Detail header ── */
@@ -114,7 +120,7 @@
   gap: var(--space-2);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .featureList {
     grid-template-columns: 1fr;
   }

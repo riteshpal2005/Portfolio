@@ -15,9 +15,18 @@
   padding-block: var(--space-12);
 }
 
-@media (min-width: 1024px) {
+/* Tablet: side-by-side at 768px */
+@media (min-width: 768px) {
   .inner {
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    padding-block: var(--space-8);
+  }
+}
+
+/* Desktop: wider split */
+@media (min-width: 1024px) {
+  .inner {
     gap: var(--space-16);
     min-height: calc(100svh - var(--nav-height));
     padding-block: 0;
@@ -70,33 +79,69 @@
 
 .name {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
   font-weight: 800;
   color: var(--color-text-primary);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
+/* Slightly smaller on tablet so phone shell fits */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .name {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+}
+
 /* ── Rotating headline ── */
 .headline {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-size: clamp(1.1rem, 3.5vw, 2rem);
   font-weight: 600;
   color: var(--color-text-primary);
   line-height: var(--leading-snug);
+  /* Prevent "Experiences" from wrapping onto a new line mid-phrase */
+  white-space: nowrap;
 }
 
+@media (max-width: 380px) {
+  .headline {
+    white-space: normal;
+  }
+}
+
+/*
+ * Wrapper: sized by the hidden sizer span.
+ * The animated word is absolutely overlaid so it doesn't
+ * affect layout — only the sizer drives the width.
+ */
 .rotatingWordWrapper {
   display: inline-block;
-  min-width: 120px;
   position: relative;
-  overflow: visible;
   vertical-align: bottom;
+  /* Smooth width transition when word changes */
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.rotatingWord {
+/* Invisible — exists only to push the wrapper to the right width */
+.rotatingWordSizer {
   display: inline-block;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+  /* Same font-weight/color as the real word so widths match exactly */
   color: var(--color-accent-light);
+  font-weight: 600;
+}
+
+/* Visible animated word — absolutely overlaid on the sizer area */
+.rotatingWord {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  white-space: nowrap;
+  color: var(--color-accent-light);
+  font-weight: 600;
 }
 
 /* ── Bio ── */
@@ -105,6 +150,13 @@
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
   max-width: 48ch;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bio {
+    font-size: var(--text-sm);
+    max-width: 36ch;
+  }
 }
 
 /* ── CTAs ── */
@@ -117,7 +169,8 @@
 /* ── Stats ── */
 .stats {
   display: flex;
-  gap: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-6);
   padding-top: var(--space-2);
   border-top: 1px solid var(--color-border);
 }
@@ -177,16 +230,25 @@
   font-size: var(--text-xs);
 }
 
-/* ── Phone wrapper (Desktop/Tablet only) ── */
+/* ── Phone wrapper ── */
 .phoneWrapper {
   display: none;
   justify-content: center;
   align-items: center;
 }
 
+/* Show on tablet and up */
 @media (min-width: 768px) {
   .phoneWrapper {
     display: flex;
+  }
+}
+
+/* Scale phone shell down on tablet so it doesn't overflow */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .phoneWrapper {
+    transform: scale(0.82);
+    transform-origin: center center;
   }
 }
 

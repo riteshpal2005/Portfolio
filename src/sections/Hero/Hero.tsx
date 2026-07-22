@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Hero.module.css';
 import PhoneShell from '../../components/ui/PhoneShell/PhoneShell';
 import Button from '../../components/common/Button/Button';
@@ -78,7 +78,6 @@ export default function Hero() {
             <h1 className={styles.name}>{personal.name}</h1>
           </motion.div>
 
-          {/* Rotating headline */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -88,16 +87,23 @@ export default function Hero() {
           >
             Building{' '}
             <span className={styles.rotatingWordWrapper} aria-live="polite" aria-atomic="true">
-              <motion.span
-                key={wordIndex}
-                initial={{ y: 24, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -24, opacity: 0 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className={styles.rotatingWord}
-              >
+              {/* Hidden sizer: sizes the wrapper to the current word's natural width */}
+              <span className={styles.rotatingWordSizer} aria-hidden="true">
                 {ROTATING_WORDS[wordIndex]}
-              </motion.span>
+              </span>
+              {/* Visible animated word: absolutely overlaid on the sizer */}
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                  key={wordIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className={styles.rotatingWord}
+                >
+                  {ROTATING_WORDS[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
             </span>
             {' '}Experiences
           </motion.div>
